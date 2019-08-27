@@ -1,5 +1,5 @@
 /*
-* Initial Block class for the blockchain
+*   Block class for the blockchain
 */
 
 const crypto = require('crypto-js')
