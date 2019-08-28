@@ -14,7 +14,8 @@ const app = express()
 app.use(bodyParser.json())
 
 myChain = new Blockchain()
-myChain.addBlock("Test")
+const newBlock = myChain.generateBlock("Test")
+myChain.addBlock(newBlock)
 
 app.get('/lastblock', function(req, res) {
     res.send(myChain.lastBlock)
