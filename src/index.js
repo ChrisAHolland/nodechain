@@ -9,11 +9,19 @@ const Block = require('./block')
 const Blockchain = require('./blockchain')
 
 const port = process.env.PORT || 3000
+
 const app = express()
+app.use(bodyParser.json())
+
 myChain = new Blockchain()
+myChain.addBlock("Test")
+
+app.get('/lastblock', function(req, res) {
+    res.send(myChain.lastBlock)
+})
 
 app.get('*', function(req, res) {
-    res.send(myChain.chain)
+    res.send(myChain)
 })
 
 app.listen(port, function() {
