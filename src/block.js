@@ -10,10 +10,10 @@ module.exports = class Block {
         this.previousHash = previousHash.toString()
         this.timestamp = Date.now()
         this.data = data
-        this.hash = this._hash()
+        this.hash = this.hash()
     }
 
-    _hash() {
+    hash() {
         return crypto.SHA256(this.id + this.previousHash + this.timetamp + this.data).toString()
     }
 }
