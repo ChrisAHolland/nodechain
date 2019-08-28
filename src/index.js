@@ -20,6 +20,10 @@ app.get('/data', function(req, res) {
     res.send(myBlock.data)
 })
 
+app.get('/hash', function(req, res) {
+    res.send(myBlock.hash)
+})
+
 app.listen(port, function() {
     console.log(`Server listening on port ${port}`)
 })
