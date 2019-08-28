@@ -8,8 +8,14 @@ const bodyParser = require('body-parser')
 const Block = require('./block')
 const Blockchain = require('./blockchain')
 
+const port = process.env.PORT || 3000
 const app = express()
+myBlock = new Block(1, "abcdef123", "Hello, World!")
 
-// For testing
-myBlock = new Block(1, "abcdef", "Test")
-console.log(myBlock)
+app.get('/', function(req, res) {
+    res.send(myBlock)
+})
+
+app.listen(port, function() {
+    console.log(`Server listening on port ${port}`)
+})
