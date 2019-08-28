@@ -10,18 +10,10 @@ const Blockchain = require('./blockchain')
 
 const port = process.env.PORT || 3000
 const app = express()
-myBlock = new Block(1, "abcdef123", "Hello, World!")
+myChain = new Blockchain()
 
-app.get('/', function(req, res) {
-    res.send(myBlock)
-})
-
-app.get('/data', function(req, res) {
-    res.send(myBlock.data)
-})
-
-app.get('/hash', function(req, res) {
-    res.send(myBlock.hash)
+app.get('*', function(req, res) {
+    res.send(myChain.chain)
 })
 
 app.listen(port, function() {
