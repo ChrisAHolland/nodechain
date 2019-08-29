@@ -27,7 +27,7 @@ app.post('/addblock', function(req, res) {
 
 // Route to view the latest block in the chain
 app.get('/lastblock', function(req, res) {
-    const data = mychain.lastBlock
+    const data = myChain.lastBlock
     res.header("Content-Type",'application/json');
     res.send(JSON.stringify(data, null, 4))
 })
