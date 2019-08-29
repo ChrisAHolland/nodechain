@@ -13,6 +13,7 @@ module.exports = class Block {
         this.hash = this.hash()
     }
 
+    // Function for the block to hash itself
     hash() {
         return crypto.SHA256(this.id + this.previousHash + this.timetamp + this.data).toString()
     }
