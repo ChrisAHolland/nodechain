@@ -47,7 +47,7 @@ module.exports = class Blockchain {
         else if (this.lastBlock.hash !== newBlock.previousHash) {
             return false
         }
-        else if (newBlock.hash.toString() !== this.hashBlock(newBlock).toString()) {
+        else if (newBlock.hash !== this.hashBlock(newBlock)) {
             return false
         }
         else
@@ -55,6 +55,6 @@ module.exports = class Blockchain {
     }
 
     hashBlock(block) {
-        return crypto.SHA256(block.id + block.previousHash + block.timestamp + block.data)
+        return crypto.SHA256(block.id + block.previousHash + block.timestamp + block.data).toString()
     }
 }

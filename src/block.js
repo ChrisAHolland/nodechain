@@ -15,6 +15,6 @@ module.exports = class Block {
 
     // Function for the block to hash itself
     hash() {
-        return crypto.SHA256(this.id + this.previousHash + this.timestamp + this.data)
+        return crypto.SHA256(this.id + this.previousHash + this.timestamp + this.data).toString()
     }
 }
