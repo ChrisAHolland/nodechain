@@ -21,14 +21,22 @@ const newBlock = myChain.generateBlock("Test")
 // Add the new Block to the Blockchain
 myChain.addBlock(newBlock)
 
+app.post('/addblock', function(req, res) {
+    // Create API to add a new block
+})
+
 // Route to view the latest block in the chain
 app.get('/lastblock', function(req, res) {
-    res.send(myChain.lastBlock)
+    const data = myChain.lastBlock
+    res.header("Content-Type",'application/json');
+    res.send(JSON.stringify(data, null, 4))
 })
 
 // Default route (temporary)
 app.get('*', function(req, res) {
-    res.send(myChain)
+    const data = myChain.chain
+    res.header("Content-Type",'application/json');
+    res.send(JSON.stringify(data, null, 4))
 })
 
 app.listen(port, function() {
