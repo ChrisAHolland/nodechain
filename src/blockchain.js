@@ -50,8 +50,9 @@ module.exports = class Blockchain {
         else if (newBlock.hash !== this.hashBlock(newBlock)) {
             return false
         }
-        else
+        else {
             return true
+        }
     }
 
     hashBlock(block) {
