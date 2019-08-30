@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 myChain = new Blockchain()
 
 // Create a new Block
-const newBlock = myChain.generateBlock("Test")
+const newBlock = myChain.generateBlock("My second block.")
 
 // Add the new Block to the Blockchain
 myChain.addBlock(newBlock)
@@ -28,14 +28,14 @@ app.post('/addblock', function(req, res) {
 // Route to view the latest block in the chain
 app.get('/lastblock', function(req, res) {
     const data = myChain.lastBlock
-    res.header("Content-Type",'application/json');
+    res.header("Content-Type",'application/json')
     res.send(JSON.stringify(data, null, 4))
 })
 
 // Default route (temporary)
 app.get('*', function(req, res) {
     const data = myChain.chain
-    res.header("Content-Type",'application/json');
+    res.header("Content-Type",'application/json')
     res.send(JSON.stringify(data, null, 4))
 })
 
