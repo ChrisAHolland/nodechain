@@ -5,6 +5,8 @@
 const crypto = require('crypto-js')
 
 module.exports = class Block {
+
+    // Constructor
     constructor(id, previousHash, data) {
         this.id = id
         this.previousHash = previousHash

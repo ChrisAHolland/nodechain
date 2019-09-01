@@ -10,7 +10,7 @@ module.exports = class Blockchain {
         this.genesisBlock = new Block(1, "0", "The Genesis Block")
         this.chain = [this.genesisBlock]
     }
-
+    
     get() {
         return this.chain
     }
@@ -51,6 +51,7 @@ module.exports = class Blockchain {
             return true
     }
 
+    // Validates a chain
     isValidChain(chain) {
 
     }
