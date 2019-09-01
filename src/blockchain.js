@@ -7,10 +7,10 @@ const Block = require('./block')
 
 module.exports = class Blockchain {
     constructor() {
-        this.genesisBlock = new Block(1, "0", "The Genesis Block")
+        this.genesisBlock = new Block(0, "0", "The Genesis Block")
         this.chain = [this.genesisBlock]
     }
-    
+
     get() {
         return this.chain
     }
@@ -23,7 +23,7 @@ module.exports = class Blockchain {
     // Creates a Block Object
     generateBlock(data) {
         const newBlock = new Block(
-            this.lastBlock.id + 1,
+            this.lastBlock.index + 1,
             this.lastBlock.hash,
             data.toString(),
         )
@@ -41,7 +41,7 @@ module.exports = class Blockchain {
     // Validates a Block
     // Need to add more conditions here. E.g. confirming the difficulty
     isValidBlock(block) {
-        if (this.lastBlock.id + 1 !== block.id) 
+        if (this.lastBlock.index + 1 !== block.index) 
             return false
         else if (this.lastBlock.hash !== block.previousHash)
             return false
@@ -57,6 +57,6 @@ module.exports = class Blockchain {
     }
 
     hashBlock(block) {
-        return crypto.SHA256(block.id + block.previousHash + block.timestamp + block.data).toString()
+        return crypto.SHA256(block.index + block.previousHash + block.timestamp + block.data).toString()
     }
 }
