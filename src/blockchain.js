@@ -53,7 +53,17 @@ module.exports = class Blockchain {
 
     // Validates a chain
     isValidChain(chain) {
+        let temp 
 
+        for (let i = 0; i < this.chain.length; i++) {
+            temp = chain[0]
+            
+            if (!this.isValidBlock(temp)) {
+                return false
+            }
+
+        }
+        return true
     }
 
     hashBlock(block) {
