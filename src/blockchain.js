@@ -41,10 +41,13 @@ module.exports = class Blockchain {
     // Validates a Block
     // Need to add more conditions here. E.g. confirming the difficulty
     isValidBlock(block) {
-        if (this.lastBlock.index + 1 !== block.index) 
+        // Check the index
+        if (this.chain[block.index - 1].index + 1 !== block.index) 
             return false
-        else if (this.lastBlock.hash !== block.previousHash)
+        // Check the previous hash
+        else if (this.chain[block.index - 1].hash !== block.previousHash)
             return false
+        // Check the hash
         else if (block.hash !== this.hashBlock(block))
             return false
         else 
