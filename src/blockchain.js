@@ -61,10 +61,8 @@ module.exports = class Blockchain {
         for (let i = 0; i < this.chain.length; i++) {
             temp = chain[0]
             
-            if (!this.isValidBlock(temp)) {
+            if (!this.isValidBlock(temp))
                 return false
-            }
-
         }
         return true
     }

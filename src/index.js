@@ -32,6 +32,10 @@ app.get('/lastblock', function(req, res) {
     res.send(JSON.stringify(data, null, 4))
 })
 
+app.get('/valid', function(req, res) {
+    res.send(myChain.isValidChain(myChain))
+})
+
 // Default route (temporary)
 app.get('*', function(req, res) {
     const data = myChain.chain
