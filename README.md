@@ -7,5 +7,4 @@ After needing to understand blockchain for a project at my internship, I decided
 # Features to Implement
 * Implement all core features of a Blockchain
 * RESTful API to interact with the Blockchain
-* More methods to the Blockchain
 * P2P connections for Blockchain validation
